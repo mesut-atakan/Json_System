@@ -12,6 +12,10 @@ public class JsonTextScript : MonoBehaviour
 //Debug.Log(JsonUtility.ToJson(player1));*/
         string json = JsonUtility.ToJson(player1, true);
         //File.WriteAllText(Application.dataPath + "/Players" + player1.userName + ".json", json);
-        File.WriteAllText(Application.dataPath + "/Scenes/JSON_System/Players/" + player1.userName + ".json", json);
+        File.WriteAllText(Application.dataPath + "/Scenes/JSON_System/Json_System/Players" + player1.userName + ".json", json);
+    
+        //Json okuma:
+        JsonUtility.FromJson<Player>(File.ReadAllText(Application.dataPath + "/Scenes/JSON_System/Json_System/Players/player1" + ".json"));
+        Debug.Log(player1.userName + "  " + player1.playerDamage + "   " + player1.playerHealth);
     }    
 }
